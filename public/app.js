@@ -1,6 +1,6 @@
-angular.module('shoppingCart', ['ngRoute', 'cart'])
+var shoppingCartApp = angular.module('shoppingCart', ['ngRoute', 'cart', 'checkout'])
 
-.config(['$routeProvider', function($routeProvider) {
+shoppingCartApp.config(['$routeProvider', function($routeProvider) {
 
 	$routeProvider.otherwise({
 		redirectTo: '/cart'
