@@ -85,16 +85,13 @@ cartModule.controller('cartController', ['$scope', function($scope) {
 cartModule.directive('checkList', function() {
 	return {
 		restrict: 'E',
+		scope: {
+			option: '='
+		},
 		template: function(elem, attrs) {
             return '<div class="panel-body">\
-                    <div class="radio">\
-                        <label><input type="radio">Option1</label>\
-                    </div>\
-            <div class="radio">\
-                        <label><input type="radio">Option2</label>\
-                    </div>\
-            <div class="radio">\
-                        <label><input type="radio">Option2</label>\
+                    <div class="radio" ng-repeat="i in option">\
+                        <label><input type="radio">{{ i.size }} Rs.{{ i.price }}</label>\
                     </div>\
                 </div>'
 		}
