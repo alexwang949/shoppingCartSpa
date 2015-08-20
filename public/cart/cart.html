@@ -2,12 +2,14 @@
        
         <div class="row">
             <div class="col-x-7 col-md-8 col-sm-8 col-lg-8">
+
                 <div class="panel panel-primary" ng-repeat="w in shopData">
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ w.item }}</h3>
                     </div>
-                    <check-list option="w.prices"></check-list>
+                    <check-list name="w.id" option="w.prices"></check-list>
                 </div>
+
             </div> <!-- end left column section -->
 
             <!-- Right side column -->
