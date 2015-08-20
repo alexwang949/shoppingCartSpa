@@ -1,6 +1,6 @@
-angular.module('cart', ['ngRoute'])
+var cartModule = angular.module('cart', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+cartModule.config(['$routeProvider', function($routeProvider) {
 
 	$routeProvider
 
@@ -10,8 +10,8 @@ angular.module('cart', ['ngRoute'])
 	});
 }])
 
-.controller('cartController', function() {
-	
+cartModule.controller('cartController', ['$scope', function($scope) {
+
 	$scope.shopData = [{
 	    'item': 'Hard Disk',
 	    'id': 'HD',
@@ -80,4 +80,21 @@ angular.module('cart', ['ngRoute'])
 	    }]
 	}]
 
-});
+}]);
+
+cartModule.directive('checkList', function() {
+	return {
+		restrict: 'E',
+		scope: {
+			option: '=',
+			name: '='
+		},
+		template: function(elem, attrs) {
+            return '<div class="panel-body">\
+                    <div class="radio" ng-repeat="i in option">\
+                        <label><input type="radio" name="{{ name }}">{{ i.size }} Rs.{{ i.price }}</label>\
+                    </div>\
+                </div>'
+		}
+	};
+})
