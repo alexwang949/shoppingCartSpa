@@ -7,7 +7,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ w.item }}</h3>
                     </div>
-                    <check-list name="w.id" option="w.prices"></check-list>
+                    <check-list name="w.id" option="w.prices" selected="w.selected"></check-list>
                 </div>
 
             </div> <!-- end left column section -->
@@ -20,7 +20,7 @@
                         <h3 class="panel-title">Total</h3>
                     </div>
                     <div class="panel-body">
-                        <h2>Rs. 100</h2>
+                        <h2>Rs. {{ total() }}</h2>
                     </div>
                 </div>
 

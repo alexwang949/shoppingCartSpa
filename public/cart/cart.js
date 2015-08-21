@@ -78,7 +78,20 @@ cartModule.controller('cartController', ['$scope', function($scope) {
 	        'size': 'Advanced',
 	        'price': '4500'
 	    }]
-	}]
+	}];
+
+	$scope.total = function() {
+
+		var t = 0;
+
+		for (var k in $scope.shopData) {
+			t += parseInt($scope.shopData[k].selected);
+		}
+
+		return t;
+	}
+
+
 
 }]);
 
@@ -87,12 +100,13 @@ cartModule.directive('checkList', function() {
 		restrict: 'E',
 		scope: {
 			option: '=',
-			name: '='
+			name: '=',
+			selected: '='
 		},
 		template: function(elem, attrs) {
             return '<div class="panel-body">\
                     <div class="radio" ng-repeat="i in option">\
-                        <label><input type="radio" name="{{ name }}">{{ i.size }} Rs.{{ i.price }}</label>\
+                        <label><input type="radio" ng-model="$parent.selected" ng-value="{{ i.price }}" name="{{ name }}">{{ i.size }} Rs.{{ i.price }}</label>\
                     </div>\
                 </div>'
 		}
